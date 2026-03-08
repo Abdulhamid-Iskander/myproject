@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Course
 
-def hello_view(request):
-    return render(request, 'hello.html')
+def course_list(request):
+    courses = Course.objects.all()
+    return render(request, 'courses.html', {'courses': courses})
